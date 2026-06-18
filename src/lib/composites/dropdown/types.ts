@@ -30,10 +30,10 @@ export type DropdownContextValue = {
   listboxId: string
   labelledBy?: string
   describedBy?: string
-  triggerRef: React.MutableRefObject<HTMLElement | null>
-  listRef: React.MutableRefObject<HTMLUListElement | null>
-  rootRef: React.MutableRefObject<HTMLDivElement | null>
-  contentRef: React.MutableRefObject<HTMLDivElement | null>
+  triggerRef: React.RefObject<HTMLElement | null>
+  listRef: React.RefObject<HTMLUListElement | null>
+  rootRef: React.RefObject<HTMLDivElement | null>
+  contentRef: React.RefObject<HTMLDivElement | null>
   setTriggerNode: (node: HTMLElement | null) => void
   setListNode: (node: HTMLUListElement | null) => void
   setContentNode: (node: HTMLDivElement | null) => void
