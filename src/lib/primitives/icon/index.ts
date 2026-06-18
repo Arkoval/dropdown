@@ -1,0 +1,1 @@
+export { AccessibleIcon } from './AccessibleIcon'

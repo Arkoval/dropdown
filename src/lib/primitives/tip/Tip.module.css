@@ -1,0 +1,19 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: var(--sz-tip);
+  block-size: var(--sz-tip);
+  border-radius: var(--r-round);
+  border: var(--b-2) solid var(--color-icon);
+  color: var(--color-icon);
+  font-size: calc(var(--fz-caption) - var(--s-2) / 6);
+  font-weight: var(--fw-bold);
+  cursor: help;
+  user-select: none;
+}
+
+.root:focus-visible {
+  outline: var(--b-2) solid var(--focus-strong);
+  outline-offset: var(--b-2);
+}

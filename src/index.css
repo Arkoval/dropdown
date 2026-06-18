@@ -1,0 +1,150 @@
+:root {
+  --color-page: #f2f3f4;
+  --color-bg: #f3f4f6;
+  --color-surface-disabled: #d8d3d3;
+  --color-surface-dropdown: #f5f3f4;
+  --color-surface-active: #eceaec;
+
+  --color-text: #656b72;
+  --color-text-strong: #15181d;
+  --color-text-control: #2d3136;
+  --color-text-subtle: #a1a5ab;
+  --color-text-disabled: #8a8d92;
+  --color-text-inactive: #c1c4c9;
+  --color-accent: #d946ef;
+  --color-error: #dc2626;
+
+  --color-border: #44484d;
+  --color-border-hover: #2f3338;
+  --color-border-muted: #aeb3b8;
+  --color-icon: #3f4348;
+  --color-scrollbar: #121316;
+
+  --focus-soft: rgba(217, 70, 239, 0.18);
+  --focus-strong: rgba(217, 70, 239, 0.45);
+  --shadow-dropdown:
+    0 10px 24px -16px rgba(22, 23, 24, 0.28),
+    0 2px 8px -4px rgba(22, 23, 24, 0.18);
+
+  --s-1: 0.18rem;
+  --s-2: 0.25rem;
+  --s-3: 0.35rem;
+  --s-4: 0.5rem;
+  --s-5: 0.65rem;
+  --s-6: 0.75rem;
+  --s-7: 0.85rem;
+  --s-8: 1.2rem;
+  --s-9: 1.6rem;
+  --s-10: 2.15rem;
+
+  --r-1: 0.3rem;
+  --r-2: 0.6rem;
+  --r-3: 0.9rem;
+  --r-4: 1.25rem;
+  --r-pill: 999px;
+  --r-round: 50%;
+
+  --b-1: 1px;
+  --b-2: 2px;
+
+  --sz-trigger-min: 3.55rem;
+  --sz-dropdown-min: 200px;
+  --sz-chevron: 1.35rem;
+  --sz-tip: 1.1rem;
+  --sz-check: 1.1rem;
+  --sz-scrollbar: 0.55rem;
+  --sz-col-min: 18rem;
+  --sz-root-max: 1126px;
+  --sz-layout-max: 960px;
+
+  --fz-caption: 0.74rem;
+  --fz-small: 0.8rem;
+  --fz-body: 0.87rem;
+  --fz-label: 0.93rem;
+  --fz-item: 0.94rem;
+  --fz-trigger: 0.98rem;
+  --fz-message: 0.9rem;
+  --fz-h1-min: 1.65rem;
+  --fz-h1-max: 2.3rem;
+
+  --lh-tight: 1.2;
+  --lh-base: 1.35;
+  --lh-label: 1.32;
+  --lh-relaxed: 1.42;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --t-fast: 100ms;
+  --t-base: 120ms;
+  --t-slow: 150ms;
+  --t-icon: 200ms;
+  --ease-base: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --opacity-meta: 0.62;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light;
+  color: var(--color-text);
+  background: var(--color-bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+#root {
+  width: var(--sz-root-max);
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: left;
+  border-inline: 0;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-page);
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--color-text-strong);
+}
+
+.srOnly {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.richText > * {
+  margin: 0;
+}
+
+.richText :where(p + p) {
+  margin-block-start: var(--s-3);
+}

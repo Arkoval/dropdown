@@ -1,0 +1,20 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--s-3) + var(--s-1) / 2);
+  font-size: var(--fz-label);
+  line-height: var(--lh-label);
+  color: var(--color-text-strong);
+  font-weight: var(--fw-bold);
+}
+
+.required {
+  color: var(--color-error);
+  font-weight: var(--fw-bold);
+}
+
+.muted {
+  color: var(--color-text);
+  font-weight: var(--fw-medium);
+  font-size: var(--fz-small);
+}

@@ -1,0 +1,206 @@
+.root {
+  display: grid;
+  gap: var(--s-6);
+  inline-size: 100%;
+  position: relative;
+}
+
+.trigger {
+  inline-size: 100%;
+  min-block-size: var(--sz-trigger-min);
+  padding-block: var(--s-7);
+  padding-inline: var(--s-9);
+  border-radius: var(--r-1);
+  border: var(--b-2) solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text-control);
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-5);
+  text-align: start;
+  font-size: var(--fz-trigger);
+  line-height: var(--lh-base);
+  font-weight: var(--fw-regular);
+  cursor: pointer;
+  transition:
+    border-color var(--t-base) ease,
+    box-shadow var(--t-base) ease;
+}
+
+.trigger:hover:not(:disabled):not([aria-invalid='true']) {
+  border-color: var(--color-border-hover);
+}
+
+.trigger:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 calc(var(--b-1) * 3) var(--focus-soft);
+  border-color: var(--color-accent);
+}
+
+.trigger[aria-invalid='true'] {
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+.triggerDisabled,
+.root[data-disabled='true'] .trigger {
+  cursor: not-allowed;
+  opacity: 1;
+  color: var(--color-text-disabled);
+  border-color: var(--color-border-muted);
+  background: var(--color-surface-disabled);
+}
+
+.value {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  min-inline-size: 0;
+  flex: 1;
+  color: var(--color-text-control);
+  font-weight: var(--fw-regular);
+}
+
+.trigger[aria-invalid='true'] .value {
+  color: var(--color-error);
+}
+
+.triggerDisabled .value,
+.root[data-disabled='true'] .trigger .value {
+  color: var(--color-text-disabled);
+}
+
+.placeholder {
+  color: var(--color-text-subtle);
+  font-weight: var(--fw-regular);
+}
+
+.trigger[aria-invalid='true'] .placeholder {
+  color: var(--color-error);
+}
+
+.triggerDisabled .placeholder,
+.root[data-disabled='true'] .trigger .placeholder {
+  color: var(--color-text-disabled);
+}
+
+.chevron {
+  inline-size: var(--sz-chevron);
+  block-size: var(--sz-chevron);
+  flex: 0 0 auto;
+  transition: transform var(--t-icon) var(--ease-base), color var(--t-base) ease;
+  color: var(--color-icon);
+}
+
+.trigger[data-state='open'] .chevron {
+  transform: rotate(180deg);
+  color: var(--color-accent);
+}
+
+.trigger[aria-invalid='true'] .chevron {
+  color: var(--color-error);
+}
+
+.triggerDisabled .chevron,
+.root[data-disabled='true'] .trigger .chevron {
+  color: var(--color-text-disabled);
+}
+
+.content {
+  position: fixed;
+  z-index: 9999;
+  border-radius: var(--r-1);
+  border: 0;
+  background: var(--color-surface-dropdown);
+  box-shadow: var(--shadow-dropdown);
+  overflow: hidden;
+  animation: dropdownSlideDown var(--t-slow) var(--ease-enter);
+  will-change: transform, opacity;
+  inline-size: var(--dropdown-trigger-width);
+  min-inline-size: var(--sz-dropdown-min);
+}
+
+@keyframes dropdownSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(calc(var(--s-2) * -1));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.list {
+  margin: 0;
+  padding: var(--s-6);
+  list-style: none;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: auto;
+  scrollbar-color: var(--color-scrollbar) transparent;
+}
+
+.list::-webkit-scrollbar {
+  inline-size: var(--sz-scrollbar);
+}
+
+.list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background: var(--color-scrollbar);
+  border-radius: var(--r-pill);
+}
+
+.list:focus {
+  outline: none;
+}
+
+.item {
+  border-radius: var(--r-1);
+  padding-block: calc(var(--s-6) + var(--s-2) / 8);
+  padding-inline: var(--s-7);
+  color: var(--color-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-5);
+  font-size: var(--fz-item);
+  line-height: var(--lh-base);
+  user-select: none;
+  transition: background-color var(--t-fast) ease;
+  position: relative;
+}
+
+.itemContent {
+  flex: 1;
+  min-inline-size: 0;
+}
+
+.itemCheck {
+  inline-size: var(--sz-check);
+  block-size: var(--sz-check);
+  flex: 0 0 auto;
+  color: var(--color-accent);
+}
+
+.itemActive {
+  background: var(--color-surface-active);
+  outline: none;
+}
+
+.itemSelected {
+  font-weight: var(--fw-semibold);
+  color: var(--color-text-control);
+}
+
+.itemDisabled {
+  opacity: 1;
+  color: var(--color-text-inactive);
+  cursor: not-allowed;
+  pointer-events: none;
+}

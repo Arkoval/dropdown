@@ -1,0 +1,14 @@
+.root {
+  font-size: var(--fz-small);
+  line-height: var(--lh-base);
+  text-align: left;
+}
+
+.error {
+  color: var(--color-error);
+  font-weight: var(--fw-bold);
+}
+
+.info {
+  color: var(--color-text);
+}

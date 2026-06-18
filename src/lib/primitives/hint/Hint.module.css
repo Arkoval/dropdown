@@ -1,0 +1,6 @@
+.root {
+  font-size: var(--fz-small);
+  line-height: var(--lh-relaxed);
+  color: var(--color-text);
+  text-align: left;
+}
