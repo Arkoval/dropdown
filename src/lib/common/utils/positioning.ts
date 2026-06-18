@@ -84,8 +84,6 @@ export function computePosition(
   const { side, align, sideOffset, alignOffset, avoidCollisions, dir = 'ltr' } = options
   const viewportWidth = window.innerWidth
   const viewportHeight = window.innerHeight
-  const scrollY = window.scrollY
-  const scrollX = window.scrollX
 
   let preferredSide = side
 
@@ -104,13 +102,13 @@ export function computePosition(
 
   const top =
     preferredSide === 'bottom'
-      ? triggerRect.bottom + scrollY + sideOffset
-      : triggerRect.top + scrollY - contentRect.height - sideOffset
+      ? triggerRect.bottom + sideOffset
+      : triggerRect.top - contentRect.height - sideOffset
 
   let left = resolveAlignedLeft(triggerRect, contentRect, {
     align,
     alignOffset,
-    scrollX,
+    scrollX: 0,
     dir,
   })
 
@@ -118,23 +116,23 @@ export function computePosition(
   // For fixed positioning, right is relative to viewport, not document
   let right: number | undefined
   if (dir === 'rtl') {
-    right = toViewportRight(left, contentRect.width, scrollX, viewportWidth)
+    right = toViewportRight(left, contentRect.width, 0, viewportWidth)
   }
 
   if (avoidCollisions) {
     const rightEdge = left + contentRect.width
 
-    if (rightEdge > viewportWidth + scrollX) {
-      left = viewportWidth + scrollX - contentRect.width - 8
+    if (rightEdge > viewportWidth) {
+      left = viewportWidth - contentRect.width - 8
       if (dir === 'rtl') {
-        right = toViewportRight(left, contentRect.width, scrollX, viewportWidth)
+        right = toViewportRight(left, contentRect.width, 0, viewportWidth)
       }
     }
 
-    if (left < scrollX + 8) {
-      left = scrollX + 8
+    if (left < 8) {
+      left = 8
       if (dir === 'rtl') {
-        right = toViewportRight(left, contentRect.width, scrollX, viewportWidth)
+        right = toViewportRight(left, contentRect.width, 0, viewportWidth)
       }
     }
   }

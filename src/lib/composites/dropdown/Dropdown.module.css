@@ -90,12 +90,20 @@
   block-size: var(--sz-chevron);
   flex: 0 0 auto;
   transition: transform var(--t-icon) var(--ease-base), color var(--t-base) ease;
-  color: var(--color-icon);
+  color: var(--color-accent);
+}
+
+.trigger[aria-invalid='true'] .chevron {
+  color: var(--color-error);
+}
+
+.triggerDisabled .chevron,
+.root[data-disabled='true'] .trigger .chevron {
+  color: var(--color-text-disabled);
 }
 
 .trigger[data-state='open'] .chevron {
   transform: rotate(180deg);
-  color: var(--color-accent);
 }
 
 .trigger[aria-invalid='true'] .chevron {
